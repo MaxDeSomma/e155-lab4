@@ -64,6 +64,8 @@
         <file file_name="../mcu/lib/FLASH.h" />
         <file file_name="../mcu/lib/GPIO.h" />
         <file file_name="../mcu/lib/RCC.h" />
+        <file file_name="../mcu/lib/TIM16.h" />
+        <file file_name="../mcu/lib/TIM67.h" />
       </folder>
       <folder Name="src">
         <file file_name="../mcu/src/FLASH.c" />

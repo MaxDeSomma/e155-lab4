@@ -7,6 +7,8 @@
 #include "../lib/FLASH.h"
 #include "../lib/GPIO.h"
 #include "../lib/RCC.h"
+#include "../lib/TIM16.h"
+
 const int notes[][2] = {
 {659,	125},
 {623,	125},
@@ -128,11 +130,18 @@ void delay(int ms) {
 
 int main(void) {
     // Set LED_PIN as output
-    RCC->AHB2ENR |= (0b1 << 1);
-    pinMode(3, GPIO_OUTPUT);
-    digitalWrite(3,GPIO_HIGH);
+    RCC->AHB2ENR |= (0b1 << 1); // enable GPIOB
+    RCC->APB2ENR |= (0b1 << 17); // enable tim16
+    RCC->CFGR |= (0b1 << 14); // set AHBPRESC to 2
+    RCC->CFGR |= (0b1 << 7); // set APB1PRESC to 2
+    TIM16->TIM_CR1 |= (0b1 << 1); //enable the counter for timer 16
+    TIM16->TIM_ARR |= (0b1 << 7); // set the auto reloag register
+    TIM16->TIM_PSC |= (0b1 << 1);
+
+    pinMode(3, GPIO_ALT);
+    
     // Blink LED
-.    while(1) {
+    while(1) {
     //    digitalWrite(7,GPIO_HIGH);
     }
     return 0;
