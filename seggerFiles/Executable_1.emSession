@@ -57,11 +57,12 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="11" y="111" useTextEdit="1" path="../mcu/src/lab5_starter.c" left="0" selected="1" top="92" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="1" y="148" useTextEdit="1" path="../mcu/src/lab5_starter.c" left="0" selected="1" top="123" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" path="../mcu/src/FLASH.c" left="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="32" y="15" useTextEdit="1" path="../mcu/lib/FLASH.h" left="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="16" y="30" useTextEdit="1" path="../mcu/lib/GPIO.h" left="0" top="15" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="13" useTextEdit="1" path="../mcu/src/GPIO.c" left="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="21" y="14" useTextEdit="1" path="../mcu/src/GPIO.c" left="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="5" useTextEdit="1" path="../mcu/lib/TIM16.h" left="0" top="0" codecName="Default"/>
  </Files>
- <EMStudioWindow activeProject="Executable_1" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/mdesomma/Documents/e155-lab4/mcu/src" debugSearchPath="" autoConnectCapabilities="3199"/>
+ <EMStudioWindow activeProject="lab3" fileDialogDefaultFilter="*.c;*.h" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/mdesomma/Documents/e155-lab4/mcu/lib" debugSearchPath="" autoConnectCapabilities="3199"/>
 </session>

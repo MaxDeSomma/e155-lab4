@@ -129,20 +129,49 @@ void delay(int ms) {
 }
 
 int main(void) {
-    // Set LED_PIN as output
-    RCC->AHB2ENR |= (0b1 << 1); // enable GPIOB
-    RCC->APB2ENR |= (0b1 << 17); // enable tim16
-    RCC->CFGR |= (0b1 << 14); // set AHBPRESC to 2
-    RCC->CFGR |= (0b1 << 7); // set APB1PRESC to 2
-    TIM16->TIM_CR1 |= (0b1 << 1); //enable the counter for timer 16
-    TIM16->TIM_ARR |= (0b1 << 7); // set the auto reloag register
-    TIM16->TIM_PSC |= (0b1 << 1);
 
-    pinMode(3, GPIO_ALT);
+    
+    // Set LED_PIN as output
+    RCC->AHB2ENR |= (0b1 << 0); // enable GPIOA
+    RCC->APB2ENR |= (0b1 << 17); // enable tim16
+    RCC->CFGR |= (0b1 << 13); // set AHBPRESC to 2
+    RCC->CFGR |= (0b1 << 7); // set APB2PRESC to 2
+
+
+    TIM16->TIM_PSC |= (0b1 << 1); // set clock prescaler
+    TIM16->TIM_CR1 |= (0b1 << 7); // enable auto preload reload
+    TIM16->TIM_ARR &= 0;
+    TIM16->TIM_ARR = 50000; // set the auto reload register
+
+
+    TIM16->TIM_CCER |= (0b1 << 0); // enable capture compare 1
+    TIM16->TIM_CCR1 = TIM16->TIM_ARR / 2; // 50% duty cycle
+    TIM16->TIM_CCMR1 &= ~(0b11 << 0); // set CC1 as output
+    TIM16->TIM_CCMR1 |= (0b1 << 6); // setting to pwm mode 1
+    TIM16->TIM_CCMR1 |= (0b1 << 5); 
+    
+    TIM16->TIM_BDTR |= (0b1 << 15); // enable main output enable 
+    
+    TIM16->TIM_CCMR1 |= (0b1 << 3); // enable pre load register
+
+   
+    
+    TIM16->TIM_EGR |= (0b1 << 0); // enableUpdate generation
+    TIM16->TIM_CR1 |= (0b1 << 0); //enable the counter for timer 16
+    
+
+    pinMode(6, GPIO_ALT);
+    GPIO->AFRL &= ~(0b1111 << 24); // Clear bits 27:24
+    GPIO->AFRL |= (0b1110 << 24);
+    //GPIO->OSPEEDR |= (0b11 << 12);
+
+    
+    
     
     // Blink LED
     while(1) {
     //    digitalWrite(7,GPIO_HIGH);
+      //TIM16->TIM_SR &= ~(0b1 << 1);
     }
     return 0;
 	

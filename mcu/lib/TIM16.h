@@ -13,7 +13,7 @@
 #define __IO volatile
 
 // Base addresses
-#define TIM16_BASE (0x400147FF) // base address of TIM16
+#define TIM16_BASE (0x40014400) // base address of TIM16
 
 /**
   * @brief Reset and Clock Control
