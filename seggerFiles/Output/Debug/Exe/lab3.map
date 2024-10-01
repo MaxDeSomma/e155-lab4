@@ -21,36 +21,42 @@ Memory use by input file:
   Object File                                       RX Code     RO Data     RW Data     ZI Data
   ---------------------------------------------  ----------  ----------  ----------  ----------
   GPIO.o                                                216                                    
-  lab5_starter.o                                        248                                    
+  lab5_starter.o                                        176         264                        
   SEGGER_THUMB_Startup.o                                 20                                    
   stm32l432xx_Vectors.o                                 532                                    
   STM32L4xx_Startup.o                                    64                                    
   system_stm32l4xx.o                                    428          64           4            
+  TIM16.o                                               328                                    
+  TIM67.o                                               136                                    
   ---------------------------------------------  ----------  ----------  ----------  ----------
-  Subtotal (6 objects)                                1 508          64           4            
+  Subtotal (8 objects)                                1 900         328           4            
   ---------------------------------------------  ----------  ----------  ----------  ----------
+  libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a
+                                                        856                                    
   SEGGER_crtinit_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a
                                                          56                                    
   ---------------------------------------------  ----------  ----------  ----------  ----------
-  Subtotal (1 archives)                                  56                                    
+  Subtotal (2 archives)                                 912                                    
   ---------------------------------------------  ----------  ----------  ----------  ----------
   Linker created (shared data, fills, blocks):                       28                   2 048
   =============================================  ==========  ==========  ==========  ==========
-  Total:                                              1 564          92           4       2 048
+  Total:                                              2 812         356           4       2 048
   =============================================  ==========  ==========  ==========  ==========
 
 Memory use by archive member:
 
   Archive member                                    RX Code     RO Data     RW Data     ZI Data
   ---------------------------------------------  ----------  ----------  ----------  ----------
+  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+                                                        856                                    
   SEGGER_crtinit.o (SEGGER_crtinit_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
                                                          56                                    
   ---------------------------------------------  ----------  ----------  ----------  ----------
-  Subtotal (1 members from 1 archives)                   56                                    
-  Objects (6 files)                                   1 508          64           4            
+  Subtotal (2 members from 2 archives)                  912                                    
+  Objects (8 files)                                   1 900         328           4            
   Linker created (shared data, fills, blocks):                       28                   2 048
   =============================================  ==========  ==========  ==========  ==========
-  Total:                                              1 564          92           4       2 048
+  Total:                                              2 812         356           4       2 048
   =============================================  ==========  ==========  ==========  ==========
 
 Memory use by linker:
@@ -62,10 +68,10 @@ Memory use by linker:
   ---------------------------------------------  ----------  ----------  ----------  ----------
   Subtotal (linker created):                                         28                   2 048
   ---------------------------------------------  ----------  ----------  ----------  ----------
-  Objects (6 files)                                   1 508          64           4            
-  Archives (1 files)                                     56                                    
+  Objects (8 files)                                   1 900         328           4            
+  Archives (2 files)                                    912                                    
   =============================================  ==========  ==========  ==========  ==========
-  Total:                                              1 564          92           4       2 048
+  Total:                                              2 812         356           4       2 048
   =============================================  ==========  ==========  ==========  ==========
 
 
@@ -81,89 +87,99 @@ Sections by address:
   -----------------  -------------------------  ----------  --  ----  --  -----------
   08000000-0800018b  _vectors                          396  512
                                                                 Code  RX  stm32l432xx_Vectors.o
-  0800018c-0800019b  AHBPrescTable                      16   4  Cnst  RO  system_stm32l4xx.o
-  0800019c-080001cb  MSIRangeTable                      48   4  Cnst  RO  system_stm32l4xx.o
-  080001cc-08000223  SystemInit                         88   4  Code  RX  system_stm32l4xx.o
-  08000224-08000377  SystemCoreClockUpdate             340   4  Code  RX  system_stm32l4xx.o
-  08000378-0800044f  pinMode                           216   4  Code  RX  GPIO.o
-  08000450-08000547  main                              248   4  Code  RX  lab5_starter.o
-  08000548-0800055b  _start                             20   4  Code  RX  SEGGER_THUMB_Startup.o
-  0800055c-08000583  HardFault_Handler                  40   4  Code  RX  STM32L4xx_Startup.o
-  08000584-08000585  NMI_Handler                         2   2  Code  RX  stm32l432xx_Vectors.o
-  08000586-08000587  MemManage_Handler                   2   2  Code  RX  stm32l432xx_Vectors.o
-  08000588-08000589  BusFault_Handler                    2   2  Code  RX  stm32l432xx_Vectors.o
-  0800058a-0800058b  UsageFault_Handler                  2   2  Code  RX  stm32l432xx_Vectors.o
-  0800058c-0800058d  SVC_Handler                         2   2  Code  RX  stm32l432xx_Vectors.o
-  0800058e-0800058f  DebugMon_Handler                    2   2  Code  RX  stm32l432xx_Vectors.o
-  08000590-08000591  PendSV_Handler                      2   2  Code  RX  stm32l432xx_Vectors.o
-  08000592-08000593  SysTick_Handler                     2   2  Code  RX  stm32l432xx_Vectors.o
-  08000594-08000595  WWDG_IRQHandler                     2   2  Code  RX  stm32l432xx_Vectors.o
-  08000596-08000597  PVD_PVM_IRQHandler                  2   2  Code  RX  stm32l432xx_Vectors.o
-  08000598-08000599  TAMP_STAMP_IRQHandler               2   2  Code  RX  stm32l432xx_Vectors.o
-  0800059a-0800059b  RTC_WKUP_IRQHandler                 2   2  Code  RX  stm32l432xx_Vectors.o
-  0800059c-0800059d  FLASH_IRQHandler                    2   2  Code  RX  stm32l432xx_Vectors.o
-  0800059e-0800059f  RCC_IRQHandler                      2   2  Code  RX  stm32l432xx_Vectors.o
-  080005a0-080005a1  EXTI0_IRQHandler                    2   2  Code  RX  stm32l432xx_Vectors.o
-  080005a2-080005a3  EXTI1_IRQHandler                    2   2  Code  RX  stm32l432xx_Vectors.o
-  080005a4-080005a5  EXTI2_IRQHandler                    2   2  Code  RX  stm32l432xx_Vectors.o
-  080005a6-080005a7  EXTI3_IRQHandler                    2   2  Code  RX  stm32l432xx_Vectors.o
-  080005a8-080005a9  EXTI4_IRQHandler                    2   2  Code  RX  stm32l432xx_Vectors.o
-  080005aa-080005ab  DMA1_Channel1_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
-  080005ac-080005ad  DMA1_Channel2_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
-  080005ae-080005af  DMA1_Channel3_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
-  080005b0-080005b1  DMA1_Channel4_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
-  080005b2-080005b3  DMA1_Channel5_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
-  080005b4-080005b5  DMA1_Channel6_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
-  080005b6-080005b7  DMA1_Channel7_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
-  080005b8-080005b9  ADC1_IRQHandler                     2   2  Code  RX  stm32l432xx_Vectors.o
-  080005ba-080005bb  CAN1_TX_IRQHandler                  2   2  Code  RX  stm32l432xx_Vectors.o
-  080005bc-080005bd  CAN1_RX0_IRQHandler                 2   2  Code  RX  stm32l432xx_Vectors.o
-  080005be-080005bf  CAN1_RX1_IRQHandler                 2   2  Code  RX  stm32l432xx_Vectors.o
-  080005c0-080005c1  CAN1_SCE_IRQHandler                 2   2  Code  RX  stm32l432xx_Vectors.o
-  080005c2-080005c3  EXTI9_5_IRQHandler                  2   2  Code  RX  stm32l432xx_Vectors.o
-  080005c4-080005c5  TIM1_BRK_TIM15_IRQHandler           2   2  Code  RX  stm32l432xx_Vectors.o
-  080005c6-080005c7  TIM1_UP_TIM16_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
-  080005c8-080005c9  TIM1_TRG_COM_IRQHandler             2   2  Code  RX  stm32l432xx_Vectors.o
-  080005ca-080005cb  TIM1_CC_IRQHandler                  2   2  Code  RX  stm32l432xx_Vectors.o
-  080005cc-080005cd  TIM2_IRQHandler                     2   2  Code  RX  stm32l432xx_Vectors.o
-  080005ce-080005cf  I2C1_EV_IRQHandler                  2   2  Code  RX  stm32l432xx_Vectors.o
-  080005d0-080005d1  I2C1_ER_IRQHandler                  2   2  Code  RX  stm32l432xx_Vectors.o
-  080005d2-080005d3  SPI1_IRQHandler                     2   2  Code  RX  stm32l432xx_Vectors.o
-  080005d4-080005d5  USART1_IRQHandler                   2   2  Code  RX  stm32l432xx_Vectors.o
-  080005d6-080005d7  USART2_IRQHandler                   2   2  Code  RX  stm32l432xx_Vectors.o
-  080005d8-080005d9  EXTI15_10_IRQHandler                2   2  Code  RX  stm32l432xx_Vectors.o
-  080005da-080005db  RTC_Alarm_IRQHandler                2   2  Code  RX  stm32l432xx_Vectors.o
-  080005dc-080005dd  SPI3_IRQHandler                     2   2  Code  RX  stm32l432xx_Vectors.o
-  080005de-080005df  TIM6_DAC_IRQHandler                 2   2  Code  RX  stm32l432xx_Vectors.o
-  080005e0-080005e1  TIM7_IRQHandler                     2   2  Code  RX  stm32l432xx_Vectors.o
-  080005e2-080005e3  DMA2_Channel1_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
-  080005e4-080005e5  DMA2_Channel2_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
-  080005e6-080005e7  DMA2_Channel3_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
-  080005e8-080005e9  DMA2_Channel4_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
-  080005ea-080005eb  DMA2_Channel5_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
-  080005ec-080005ed  COMP_IRQHandler                     2   2  Code  RX  stm32l432xx_Vectors.o
-  080005ee-080005ef  LPTIM1_IRQHandler                   2   2  Code  RX  stm32l432xx_Vectors.o
-  080005f0-080005f1  LPTIM2_IRQHandler                   2   2  Code  RX  stm32l432xx_Vectors.o
-  080005f2-080005f3  USB_IRQHandler                      2   2  Code  RX  stm32l432xx_Vectors.o
-  080005f4-080005f5  DMA2_Channel6_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
-  080005f6-080005f7  DMA2_Channel7_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
-  080005f8-080005f9  LPUART1_IRQHandler                  2   2  Code  RX  stm32l432xx_Vectors.o
-  080005fa-080005fb  QUADSPI_IRQHandler                  2   2  Code  RX  stm32l432xx_Vectors.o
-  080005fc-080005fd  I2C3_EV_IRQHandler                  2   2  Code  RX  stm32l432xx_Vectors.o
-  080005fe-080005ff  I2C3_ER_IRQHandler                  2   2  Code  RX  stm32l432xx_Vectors.o
-  08000600-08000601  SAI1_IRQHandler                     2   2  Code  RX  stm32l432xx_Vectors.o
-  08000602-08000603  SWPMI1_IRQHandler                   2   2  Code  RX  stm32l432xx_Vectors.o
-  08000604-08000605  TSC_IRQHandler                      2   2  Code  RX  stm32l432xx_Vectors.o
-  08000606-08000607  RNG_IRQHandler                      2   2  Code  RX  stm32l432xx_Vectors.o
-  08000608-08000609  FPU_IRQHandler                      2   2  Code  RX  stm32l432xx_Vectors.o
-  0800060a-0800060b  CRS_IRQHandler                      2   2  Code  RX  stm32l432xx_Vectors.o
-  0800060c-08000623  reset_handler                      24   2  Code  RX  STM32L4xx_Startup.o
-  08000624-08000627  [.init_array]                       4   4  ----  --  STM32L4xx_Startup.o
-  08000628-0800064b  __SEGGER_init_ctors                36   4  Code  RX  SEGGER_crtinit.o (SEGGER_crtinit_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
-  0800064c-08000663  __SEGGER_init_table__              24   4  Cnst  RO  [ Linker created ]
-  08000664-08000667  __SEGGER_init_data__                4   4  Cnst  RO  [ Linker created ]
-  08000668-0800067b  __SEGGER_init_copy                 20   2  Code  RX  SEGGER_crtinit.o (SEGGER_crtinit_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
-  0800067c-0fffffff  ( UNUSED .=.+134216068 )   134 216 068
+  0800018c-0800018d  NMI_Handler                         2   2  Code  RX  stm32l432xx_Vectors.o
+  0800018e-0800018f  MemManage_Handler                   2   2  Code  RX  stm32l432xx_Vectors.o
+  08000190-080001e3  delayTIM6                          84   8  Code  RX  TIM67.o
+  080001e4-080001f3  AHBPrescTable                      16   4  Cnst  RO  system_stm32l4xx.o
+  080001f4-08000223  MSIRangeTable                      48   4  Cnst  RO  system_stm32l4xx.o
+  08000224-0800027b  SystemInit                         88   4  Code  RX  system_stm32l4xx.o
+  0800027c-080003cf  SystemCoreClockUpdate             340   4  Code  RX  system_stm32l4xx.o
+  080003d0-080004a7  pinMode                           216   4  Code  RX  GPIO.o
+  080004a8-080005af  bamba                             264   4  Cnst  RO  lab5_starter.o
+  080005b0-0800065f  main                              176   4  Code  RX  lab5_starter.o
+  08000660-08000737  setUpPWM                          216   4  Code  RX  TIM16.o
+  08000738-080007a7  changeFreq                        112   4  Code  RX  TIM16.o
+  080007a8-080007db  setUpTIM6                          52   4  Code  RX  TIM67.o
+  080007dc-080007ef  _start                             20   4  Code  RX  SEGGER_THUMB_Startup.o
+  080007f0-08000817  HardFault_Handler                  40   4  Code  RX  STM32L4xx_Startup.o
+  08000818-08000947  __aeabi_dmul                      304   4  Code  RX  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  08000948-08000b0b  __aeabi_ddiv                      452   4  Code  RX  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  08000b0c-08000b2f  __aeabi_d2uiz                      36   4  Code  RX  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  08000b30-08000b53  __aeabi_i2d                        36   4  Code  RX  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  08000b54-08000b6f  __aeabi_ui2d                       28   4  Code  RX  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  08000b70-08000b71  BusFault_Handler                    2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b72-08000b73  UsageFault_Handler                  2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b74-08000b75  SVC_Handler                         2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b76-08000b77  DebugMon_Handler                    2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b78-08000b79  PendSV_Handler                      2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b7a-08000b7b  SysTick_Handler                     2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b7c-08000b7d  WWDG_IRQHandler                     2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b7e-08000b7f  PVD_PVM_IRQHandler                  2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b80-08000b81  TAMP_STAMP_IRQHandler               2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b82-08000b83  RTC_WKUP_IRQHandler                 2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b84-08000b85  FLASH_IRQHandler                    2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b86-08000b87  RCC_IRQHandler                      2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b88-08000b89  EXTI0_IRQHandler                    2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b8a-08000b8b  EXTI1_IRQHandler                    2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b8c-08000b8d  EXTI2_IRQHandler                    2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b8e-08000b8f  EXTI3_IRQHandler                    2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b90-08000b91  EXTI4_IRQHandler                    2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b92-08000b93  DMA1_Channel1_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b94-08000b95  DMA1_Channel2_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b96-08000b97  DMA1_Channel3_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b98-08000b99  DMA1_Channel4_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b9a-08000b9b  DMA1_Channel5_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b9c-08000b9d  DMA1_Channel6_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
+  08000b9e-08000b9f  DMA1_Channel7_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
+  08000ba0-08000ba1  ADC1_IRQHandler                     2   2  Code  RX  stm32l432xx_Vectors.o
+  08000ba2-08000ba3  CAN1_TX_IRQHandler                  2   2  Code  RX  stm32l432xx_Vectors.o
+  08000ba4-08000ba5  CAN1_RX0_IRQHandler                 2   2  Code  RX  stm32l432xx_Vectors.o
+  08000ba6-08000ba7  CAN1_RX1_IRQHandler                 2   2  Code  RX  stm32l432xx_Vectors.o
+  08000ba8-08000ba9  CAN1_SCE_IRQHandler                 2   2  Code  RX  stm32l432xx_Vectors.o
+  08000baa-08000bab  EXTI9_5_IRQHandler                  2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bac-08000bad  TIM1_BRK_TIM15_IRQHandler           2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bae-08000baf  TIM1_UP_TIM16_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bb0-08000bb1  TIM1_TRG_COM_IRQHandler             2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bb2-08000bb3  TIM1_CC_IRQHandler                  2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bb4-08000bb5  TIM2_IRQHandler                     2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bb6-08000bb7  I2C1_EV_IRQHandler                  2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bb8-08000bb9  I2C1_ER_IRQHandler                  2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bba-08000bbb  SPI1_IRQHandler                     2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bbc-08000bbd  USART1_IRQHandler                   2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bbe-08000bbf  USART2_IRQHandler                   2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bc0-08000bc1  EXTI15_10_IRQHandler                2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bc2-08000bc3  RTC_Alarm_IRQHandler                2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bc4-08000bc5  SPI3_IRQHandler                     2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bc6-08000bc7  TIM6_DAC_IRQHandler                 2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bc8-08000bc9  TIM7_IRQHandler                     2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bca-08000bcb  DMA2_Channel1_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bcc-08000bcd  DMA2_Channel2_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bce-08000bcf  DMA2_Channel3_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bd0-08000bd1  DMA2_Channel4_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bd2-08000bd3  DMA2_Channel5_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bd4-08000bd5  COMP_IRQHandler                     2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bd6-08000bd7  LPTIM1_IRQHandler                   2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bd8-08000bd9  LPTIM2_IRQHandler                   2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bda-08000bdb  USB_IRQHandler                      2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bdc-08000bdd  DMA2_Channel6_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bde-08000bdf  DMA2_Channel7_IRQHandler            2   2  Code  RX  stm32l432xx_Vectors.o
+  08000be0-08000be1  LPUART1_IRQHandler                  2   2  Code  RX  stm32l432xx_Vectors.o
+  08000be2-08000be3  QUADSPI_IRQHandler                  2   2  Code  RX  stm32l432xx_Vectors.o
+  08000be4-08000be5  I2C3_EV_IRQHandler                  2   2  Code  RX  stm32l432xx_Vectors.o
+  08000be6-08000be7  I2C3_ER_IRQHandler                  2   2  Code  RX  stm32l432xx_Vectors.o
+  08000be8-08000be9  SAI1_IRQHandler                     2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bea-08000beb  SWPMI1_IRQHandler                   2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bec-08000bed  TSC_IRQHandler                      2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bee-08000bef  RNG_IRQHandler                      2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bf0-08000bf1  FPU_IRQHandler                      2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bf2-08000bf3  CRS_IRQHandler                      2   2  Code  RX  stm32l432xx_Vectors.o
+  08000bf4-08000c0b  reset_handler                      24   2  Code  RX  STM32L4xx_Startup.o
+  08000c0c-08000c0f  [.init_array]                       4   4  ----  --  STM32L4xx_Startup.o
+  08000c10-08000c33  __SEGGER_init_ctors                36   4  Code  RX  SEGGER_crtinit.o (SEGGER_crtinit_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  08000c34-08000c4b  __SEGGER_init_table__              24   4  Cnst  RO  [ Linker created ]
+  08000c4c-08000c4f  __SEGGER_init_data__                4   4  Cnst  RO  [ Linker created ]
+  08000c50-08000c63  __SEGGER_init_copy                 20   2  Code  RX  SEGGER_crtinit.o (SEGGER_crtinit_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  08000c64-0fffffff  ( UNUSED .=.+134214556 )   134 214 556
                                                              -  ----  -   -
   10000000-10000003  SystemCoreClock                     4   4  Init  RW  system_stm32l4xx.o
   10000004-2000b7ff  ( UNUSED .=.+268482556 )   268 482 556
@@ -181,182 +197,209 @@ Function symbols by name:
 
   Symbol name                   Address        Size  Align  Type  Bd  Object File
   -------------------------  ----------  ----------  -----  ----  --  -----------
-  ADC1_IRQHandler            0x080005B9                  2  Code  Wk  stm32l432xx_Vectors.o
-  BusFault_Handler           0x08000589                  2  Code  Wk  stm32l432xx_Vectors.o
-  CAN1_RX0_IRQHandler        0x080005BD                  2  Code  Wk  stm32l432xx_Vectors.o
-  CAN1_RX1_IRQHandler        0x080005BF                  2  Code  Wk  stm32l432xx_Vectors.o
-  CAN1_SCE_IRQHandler        0x080005C1                  2  Code  Wk  stm32l432xx_Vectors.o
-  CAN1_TX_IRQHandler         0x080005BB                  2  Code  Wk  stm32l432xx_Vectors.o
-  COMP_IRQHandler            0x080005ED                  2  Code  Wk  stm32l432xx_Vectors.o
-  CRS_IRQHandler             0x0800060B                  2  Code  Wk  stm32l432xx_Vectors.o
-  DMA1_Channel1_IRQHandler   0x080005AB                  2  Code  Wk  stm32l432xx_Vectors.o
-  DMA1_Channel2_IRQHandler   0x080005AD                  2  Code  Wk  stm32l432xx_Vectors.o
-  DMA1_Channel3_IRQHandler   0x080005AF                  2  Code  Wk  stm32l432xx_Vectors.o
-  DMA1_Channel4_IRQHandler   0x080005B1                  2  Code  Wk  stm32l432xx_Vectors.o
-  DMA1_Channel5_IRQHandler   0x080005B3                  2  Code  Wk  stm32l432xx_Vectors.o
-  DMA1_Channel6_IRQHandler   0x080005B5                  2  Code  Wk  stm32l432xx_Vectors.o
-  DMA1_Channel7_IRQHandler   0x080005B7                  2  Code  Wk  stm32l432xx_Vectors.o
-  DMA2_Channel1_IRQHandler   0x080005E3                  2  Code  Wk  stm32l432xx_Vectors.o
-  DMA2_Channel2_IRQHandler   0x080005E5                  2  Code  Wk  stm32l432xx_Vectors.o
-  DMA2_Channel3_IRQHandler   0x080005E7                  2  Code  Wk  stm32l432xx_Vectors.o
-  DMA2_Channel4_IRQHandler   0x080005E9                  2  Code  Wk  stm32l432xx_Vectors.o
-  DMA2_Channel5_IRQHandler   0x080005EB                  2  Code  Wk  stm32l432xx_Vectors.o
-  DMA2_Channel6_IRQHandler   0x080005F5                  2  Code  Wk  stm32l432xx_Vectors.o
-  DMA2_Channel7_IRQHandler   0x080005F7                  2  Code  Wk  stm32l432xx_Vectors.o
-  DebugMon_Handler           0x0800058F                  2  Code  Wk  stm32l432xx_Vectors.o
-  EXTI0_IRQHandler           0x080005A1                  2  Code  Wk  stm32l432xx_Vectors.o
-  EXTI15_10_IRQHandler       0x080005D9                  2  Code  Wk  stm32l432xx_Vectors.o
-  EXTI1_IRQHandler           0x080005A3                  2  Code  Wk  stm32l432xx_Vectors.o
-  EXTI2_IRQHandler           0x080005A5                  2  Code  Wk  stm32l432xx_Vectors.o
-  EXTI3_IRQHandler           0x080005A7                  2  Code  Wk  stm32l432xx_Vectors.o
-  EXTI4_IRQHandler           0x080005A9                  2  Code  Wk  stm32l432xx_Vectors.o
-  EXTI9_5_IRQHandler         0x080005C3                  2  Code  Wk  stm32l432xx_Vectors.o
-  FLASH_IRQHandler           0x0800059D                  2  Code  Wk  stm32l432xx_Vectors.o
-  FPU_IRQHandler             0x08000609                  2  Code  Wk  stm32l432xx_Vectors.o
-  HardFault_Handler          0x0800055D                  4  Code  Wk  STM32L4xx_Startup.o
-  I2C1_ER_IRQHandler         0x080005D1                  2  Code  Wk  stm32l432xx_Vectors.o
-  I2C1_EV_IRQHandler         0x080005CF                  2  Code  Wk  stm32l432xx_Vectors.o
-  I2C3_ER_IRQHandler         0x080005FF                  2  Code  Wk  stm32l432xx_Vectors.o
-  I2C3_EV_IRQHandler         0x080005FD                  2  Code  Wk  stm32l432xx_Vectors.o
-  LPTIM1_IRQHandler          0x080005EF                  2  Code  Wk  stm32l432xx_Vectors.o
-  LPTIM2_IRQHandler          0x080005F1                  2  Code  Wk  stm32l432xx_Vectors.o
-  LPUART1_IRQHandler         0x080005F9                  2  Code  Wk  stm32l432xx_Vectors.o
-  MemManage_Handler          0x08000587                  2  Code  Wk  stm32l432xx_Vectors.o
-  NMI_Handler                0x08000585                  2  Code  Wk  stm32l432xx_Vectors.o
-  PVD_PVM_IRQHandler         0x08000597                  2  Code  Wk  stm32l432xx_Vectors.o
-  PendSV_Handler             0x08000591                  2  Code  Wk  stm32l432xx_Vectors.o
-  QUADSPI_IRQHandler         0x080005FB                  2  Code  Wk  stm32l432xx_Vectors.o
-  RCC_IRQHandler             0x0800059F                  2  Code  Wk  stm32l432xx_Vectors.o
-  RNG_IRQHandler             0x08000607                  2  Code  Wk  stm32l432xx_Vectors.o
-  RTC_Alarm_IRQHandler       0x080005DB                  2  Code  Wk  stm32l432xx_Vectors.o
-  RTC_WKUP_IRQHandler        0x0800059B                  2  Code  Wk  stm32l432xx_Vectors.o
-  Reset_Handler              0x0800060D                  2  Code  Gb  STM32L4xx_Startup.o
-  SAI1_IRQHandler            0x08000601                  2  Code  Wk  stm32l432xx_Vectors.o
-  SPI1_IRQHandler            0x080005D3                  2  Code  Wk  stm32l432xx_Vectors.o
-  SPI3_IRQHandler            0x080005DD                  2  Code  Wk  stm32l432xx_Vectors.o
-  SVC_Handler                0x0800058D                  2  Code  Wk  stm32l432xx_Vectors.o
-  SWPMI1_IRQHandler          0x08000603                  2  Code  Wk  stm32l432xx_Vectors.o
-  SysTick_Handler            0x08000593                  2  Code  Wk  stm32l432xx_Vectors.o
-  SystemCoreClockUpdate      0x08000225         340      4  Code  Gb  system_stm32l4xx.o
-  SystemInit                 0x080001CD          88      4  Code  Gb  system_stm32l4xx.o
-  TAMP_STAMP_IRQHandler      0x08000599                  2  Code  Wk  stm32l432xx_Vectors.o
-  TIM1_BRK_TIM15_IRQHandler  0x080005C5                  2  Code  Wk  stm32l432xx_Vectors.o
-  TIM1_CC_IRQHandler         0x080005CB                  2  Code  Wk  stm32l432xx_Vectors.o
-  TIM1_TRG_COM_IRQHandler    0x080005C9                  2  Code  Wk  stm32l432xx_Vectors.o
-  TIM1_UP_TIM16_IRQHandler   0x080005C7                  2  Code  Wk  stm32l432xx_Vectors.o
-  TIM2_IRQHandler            0x080005CD                  2  Code  Wk  stm32l432xx_Vectors.o
-  TIM6_DAC_IRQHandler        0x080005DF                  2  Code  Wk  stm32l432xx_Vectors.o
-  TIM7_IRQHandler            0x080005E1                  2  Code  Wk  stm32l432xx_Vectors.o
-  TSC_IRQHandler             0x08000605                  2  Code  Wk  stm32l432xx_Vectors.o
-  USART1_IRQHandler          0x080005D5                  2  Code  Wk  stm32l432xx_Vectors.o
-  USART2_IRQHandler          0x080005D7                  2  Code  Wk  stm32l432xx_Vectors.o
-  USB_IRQHandler             0x080005F3                  2  Code  Wk  stm32l432xx_Vectors.o
-  UsageFault_Handler         0x0800058B                  2  Code  Wk  stm32l432xx_Vectors.o
-  WWDG_IRQHandler            0x08000595                  2  Code  Wk  stm32l432xx_Vectors.o
-  __SEGGER_init_copy         0x08000669          20      2  Code  Wk  SEGGER_crtinit.o (SEGGER_crtinit_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
-  __SEGGER_init_ctors        0x08000629          26      4  Code  Wk  SEGGER_crtinit.o (SEGGER_crtinit_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
-  __SEGGER_init_done         0x08000553                  4  Code  Gb  SEGGER_THUMB_Startup.o
-  __startup_complete         0x08000553                  4  Code  Gb  SEGGER_THUMB_Startup.o
-  _start                     0x08000549          14      4  Code  Gb  SEGGER_THUMB_Startup.o
-  exit                       0x08000557           2      4  Code  Gb  SEGGER_THUMB_Startup.o
-  main                       0x08000451         248      4  Code  Gb  lab5_starter.o
-  pinMode                    0x08000379         216      4  Code  Gb  GPIO.o
-  reset_handler              0x0800060D                  2  Code  Gb  STM32L4xx_Startup.o
+  ADC1_IRQHandler            0x08000BA1                  2  Code  Wk  stm32l432xx_Vectors.o
+  BusFault_Handler           0x08000B71                  2  Code  Wk  stm32l432xx_Vectors.o
+  CAN1_RX0_IRQHandler        0x08000BA5                  2  Code  Wk  stm32l432xx_Vectors.o
+  CAN1_RX1_IRQHandler        0x08000BA7                  2  Code  Wk  stm32l432xx_Vectors.o
+  CAN1_SCE_IRQHandler        0x08000BA9                  2  Code  Wk  stm32l432xx_Vectors.o
+  CAN1_TX_IRQHandler         0x08000BA3                  2  Code  Wk  stm32l432xx_Vectors.o
+  COMP_IRQHandler            0x08000BD5                  2  Code  Wk  stm32l432xx_Vectors.o
+  CRS_IRQHandler             0x08000BF3                  2  Code  Wk  stm32l432xx_Vectors.o
+  DMA1_Channel1_IRQHandler   0x08000B93                  2  Code  Wk  stm32l432xx_Vectors.o
+  DMA1_Channel2_IRQHandler   0x08000B95                  2  Code  Wk  stm32l432xx_Vectors.o
+  DMA1_Channel3_IRQHandler   0x08000B97                  2  Code  Wk  stm32l432xx_Vectors.o
+  DMA1_Channel4_IRQHandler   0x08000B99                  2  Code  Wk  stm32l432xx_Vectors.o
+  DMA1_Channel5_IRQHandler   0x08000B9B                  2  Code  Wk  stm32l432xx_Vectors.o
+  DMA1_Channel6_IRQHandler   0x08000B9D                  2  Code  Wk  stm32l432xx_Vectors.o
+  DMA1_Channel7_IRQHandler   0x08000B9F                  2  Code  Wk  stm32l432xx_Vectors.o
+  DMA2_Channel1_IRQHandler   0x08000BCB                  2  Code  Wk  stm32l432xx_Vectors.o
+  DMA2_Channel2_IRQHandler   0x08000BCD                  2  Code  Wk  stm32l432xx_Vectors.o
+  DMA2_Channel3_IRQHandler   0x08000BCF                  2  Code  Wk  stm32l432xx_Vectors.o
+  DMA2_Channel4_IRQHandler   0x08000BD1                  2  Code  Wk  stm32l432xx_Vectors.o
+  DMA2_Channel5_IRQHandler   0x08000BD3                  2  Code  Wk  stm32l432xx_Vectors.o
+  DMA2_Channel6_IRQHandler   0x08000BDD                  2  Code  Wk  stm32l432xx_Vectors.o
+  DMA2_Channel7_IRQHandler   0x08000BDF                  2  Code  Wk  stm32l432xx_Vectors.o
+  DebugMon_Handler           0x08000B77                  2  Code  Wk  stm32l432xx_Vectors.o
+  EXTI0_IRQHandler           0x08000B89                  2  Code  Wk  stm32l432xx_Vectors.o
+  EXTI15_10_IRQHandler       0x08000BC1                  2  Code  Wk  stm32l432xx_Vectors.o
+  EXTI1_IRQHandler           0x08000B8B                  2  Code  Wk  stm32l432xx_Vectors.o
+  EXTI2_IRQHandler           0x08000B8D                  2  Code  Wk  stm32l432xx_Vectors.o
+  EXTI3_IRQHandler           0x08000B8F                  2  Code  Wk  stm32l432xx_Vectors.o
+  EXTI4_IRQHandler           0x08000B91                  2  Code  Wk  stm32l432xx_Vectors.o
+  EXTI9_5_IRQHandler         0x08000BAB                  2  Code  Wk  stm32l432xx_Vectors.o
+  FLASH_IRQHandler           0x08000B85                  2  Code  Wk  stm32l432xx_Vectors.o
+  FPU_IRQHandler             0x08000BF1                  2  Code  Wk  stm32l432xx_Vectors.o
+  HardFault_Handler          0x080007F1                  4  Code  Wk  STM32L4xx_Startup.o
+  I2C1_ER_IRQHandler         0x08000BB9                  2  Code  Wk  stm32l432xx_Vectors.o
+  I2C1_EV_IRQHandler         0x08000BB7                  2  Code  Wk  stm32l432xx_Vectors.o
+  I2C3_ER_IRQHandler         0x08000BE7                  2  Code  Wk  stm32l432xx_Vectors.o
+  I2C3_EV_IRQHandler         0x08000BE5                  2  Code  Wk  stm32l432xx_Vectors.o
+  LPTIM1_IRQHandler          0x08000BD7                  2  Code  Wk  stm32l432xx_Vectors.o
+  LPTIM2_IRQHandler          0x08000BD9                  2  Code  Wk  stm32l432xx_Vectors.o
+  LPUART1_IRQHandler         0x08000BE1                  2  Code  Wk  stm32l432xx_Vectors.o
+  MemManage_Handler          0x0800018F                  2  Code  Wk  stm32l432xx_Vectors.o
+  NMI_Handler                0x0800018D                  2  Code  Wk  stm32l432xx_Vectors.o
+  PVD_PVM_IRQHandler         0x08000B7F                  2  Code  Wk  stm32l432xx_Vectors.o
+  PendSV_Handler             0x08000B79                  2  Code  Wk  stm32l432xx_Vectors.o
+  QUADSPI_IRQHandler         0x08000BE3                  2  Code  Wk  stm32l432xx_Vectors.o
+  RCC_IRQHandler             0x08000B87                  2  Code  Wk  stm32l432xx_Vectors.o
+  RNG_IRQHandler             0x08000BEF                  2  Code  Wk  stm32l432xx_Vectors.o
+  RTC_Alarm_IRQHandler       0x08000BC3                  2  Code  Wk  stm32l432xx_Vectors.o
+  RTC_WKUP_IRQHandler        0x08000B83                  2  Code  Wk  stm32l432xx_Vectors.o
+  Reset_Handler              0x08000BF5                  2  Code  Gb  STM32L4xx_Startup.o
+  SAI1_IRQHandler            0x08000BE9                  2  Code  Wk  stm32l432xx_Vectors.o
+  SPI1_IRQHandler            0x08000BBB                  2  Code  Wk  stm32l432xx_Vectors.o
+  SPI3_IRQHandler            0x08000BC5                  2  Code  Wk  stm32l432xx_Vectors.o
+  SVC_Handler                0x08000B75                  2  Code  Wk  stm32l432xx_Vectors.o
+  SWPMI1_IRQHandler          0x08000BEB                  2  Code  Wk  stm32l432xx_Vectors.o
+  SysTick_Handler            0x08000B7B                  2  Code  Wk  stm32l432xx_Vectors.o
+  SystemCoreClockUpdate      0x0800027D         340      4  Code  Gb  system_stm32l4xx.o
+  SystemInit                 0x08000225          88      4  Code  Gb  system_stm32l4xx.o
+  TAMP_STAMP_IRQHandler      0x08000B81                  2  Code  Wk  stm32l432xx_Vectors.o
+  TIM1_BRK_TIM15_IRQHandler  0x08000BAD                  2  Code  Wk  stm32l432xx_Vectors.o
+  TIM1_CC_IRQHandler         0x08000BB3                  2  Code  Wk  stm32l432xx_Vectors.o
+  TIM1_TRG_COM_IRQHandler    0x08000BB1                  2  Code  Wk  stm32l432xx_Vectors.o
+  TIM1_UP_TIM16_IRQHandler   0x08000BAF                  2  Code  Wk  stm32l432xx_Vectors.o
+  TIM2_IRQHandler            0x08000BB5                  2  Code  Wk  stm32l432xx_Vectors.o
+  TIM6_DAC_IRQHandler        0x08000BC7                  2  Code  Wk  stm32l432xx_Vectors.o
+  TIM7_IRQHandler            0x08000BC9                  2  Code  Wk  stm32l432xx_Vectors.o
+  TSC_IRQHandler             0x08000BED                  2  Code  Wk  stm32l432xx_Vectors.o
+  USART1_IRQHandler          0x08000BBD                  2  Code  Wk  stm32l432xx_Vectors.o
+  USART2_IRQHandler          0x08000BBF                  2  Code  Wk  stm32l432xx_Vectors.o
+  USB_IRQHandler             0x08000BDB                  2  Code  Wk  stm32l432xx_Vectors.o
+  UsageFault_Handler         0x08000B73                  2  Code  Wk  stm32l432xx_Vectors.o
+  WWDG_IRQHandler            0x08000B7D                  2  Code  Wk  stm32l432xx_Vectors.o
+  __SEGGER_init_copy         0x08000C51          20      2  Code  Wk  SEGGER_crtinit.o (SEGGER_crtinit_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  __SEGGER_init_ctors        0x08000C11          26      4  Code  Wk  SEGGER_crtinit.o (SEGGER_crtinit_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  __SEGGER_init_done         0x080007E7                  4  Code  Gb  SEGGER_THUMB_Startup.o
+  __aeabi_d2uiz              0x08000B0D          36      4  Code  Wk  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  __aeabi_ddiv               0x08000949         450      4  Code  Wk  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  __aeabi_dmul               0x08000819         304      4  Code  Wk  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  __aeabi_i2d                0x08000B31          34      4  Code  Wk  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  __aeabi_ui2d               0x08000B55          28      4  Code  Wk  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  __startup_complete         0x080007E7                  4  Code  Gb  SEGGER_THUMB_Startup.o
+  _start                     0x080007DD          14      4  Code  Gb  SEGGER_THUMB_Startup.o
+  changeFreq                 0x08000739         112      4  Code  Gb  TIM16.o
+  delayTIM6                  0x08000191          84      8  Code  Gb  TIM67.o
+  exit                       0x080007EB           2      4  Code  Gb  SEGGER_THUMB_Startup.o
+  main                       0x080005B1         176      4  Code  Gb  lab5_starter.o
+  pinMode                    0x080003D1         216      4  Code  Gb  GPIO.o
+  reset_handler              0x08000BF5                  2  Code  Gb  STM32L4xx_Startup.o
+  setUpPWM                   0x08000661         216      4  Code  Gb  TIM16.o
+  setUpTIM6                  0x080007A9          52      4  Code  Gb  TIM67.o
 
 Function symbols by address:
 
      Address  Symbol name                      Size  Align  Type  Bd  Object File
   ----------  -------------------------  ----------  -----  ----  --  -----------
-  0x080001CD  SystemInit                         88      4  Code  Gb  system_stm32l4xx.o
-  0x08000225  SystemCoreClockUpdate             340      4  Code  Gb  system_stm32l4xx.o
-  0x08000379  pinMode                           216      4  Code  Gb  GPIO.o
-  0x08000451  main                              248      4  Code  Gb  lab5_starter.o
-  0x08000549  _start                             14      4  Code  Gb  SEGGER_THUMB_Startup.o
-  0x08000553  __startup_complete                         4  Code  Gb  SEGGER_THUMB_Startup.o
-  0x08000553  __SEGGER_init_done                         4  Code  Gb  SEGGER_THUMB_Startup.o
-  0x08000557  exit                                2      4  Code  Gb  SEGGER_THUMB_Startup.o
-  0x0800055D  HardFault_Handler                          4  Code  Wk  STM32L4xx_Startup.o
-  0x08000585  NMI_Handler                                2  Code  Wk  stm32l432xx_Vectors.o
-  0x08000587  MemManage_Handler                          2  Code  Wk  stm32l432xx_Vectors.o
-  0x08000589  BusFault_Handler                           2  Code  Wk  stm32l432xx_Vectors.o
-  0x0800058B  UsageFault_Handler                         2  Code  Wk  stm32l432xx_Vectors.o
-  0x0800058D  SVC_Handler                                2  Code  Wk  stm32l432xx_Vectors.o
-  0x0800058F  DebugMon_Handler                           2  Code  Wk  stm32l432xx_Vectors.o
-  0x08000591  PendSV_Handler                             2  Code  Wk  stm32l432xx_Vectors.o
-  0x08000593  SysTick_Handler                            2  Code  Wk  stm32l432xx_Vectors.o
-  0x08000595  WWDG_IRQHandler                            2  Code  Wk  stm32l432xx_Vectors.o
-  0x08000597  PVD_PVM_IRQHandler                         2  Code  Wk  stm32l432xx_Vectors.o
-  0x08000599  TAMP_STAMP_IRQHandler                      2  Code  Wk  stm32l432xx_Vectors.o
-  0x0800059B  RTC_WKUP_IRQHandler                        2  Code  Wk  stm32l432xx_Vectors.o
-  0x0800059D  FLASH_IRQHandler                           2  Code  Wk  stm32l432xx_Vectors.o
-  0x0800059F  RCC_IRQHandler                             2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005A1  EXTI0_IRQHandler                           2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005A3  EXTI1_IRQHandler                           2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005A5  EXTI2_IRQHandler                           2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005A7  EXTI3_IRQHandler                           2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005A9  EXTI4_IRQHandler                           2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005AB  DMA1_Channel1_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005AD  DMA1_Channel2_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005AF  DMA1_Channel3_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005B1  DMA1_Channel4_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005B3  DMA1_Channel5_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005B5  DMA1_Channel6_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005B7  DMA1_Channel7_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005B9  ADC1_IRQHandler                            2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005BB  CAN1_TX_IRQHandler                         2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005BD  CAN1_RX0_IRQHandler                        2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005BF  CAN1_RX1_IRQHandler                        2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005C1  CAN1_SCE_IRQHandler                        2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005C3  EXTI9_5_IRQHandler                         2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005C5  TIM1_BRK_TIM15_IRQHandler                  2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005C7  TIM1_UP_TIM16_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005C9  TIM1_TRG_COM_IRQHandler                    2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005CB  TIM1_CC_IRQHandler                         2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005CD  TIM2_IRQHandler                            2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005CF  I2C1_EV_IRQHandler                         2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005D1  I2C1_ER_IRQHandler                         2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005D3  SPI1_IRQHandler                            2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005D5  USART1_IRQHandler                          2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005D7  USART2_IRQHandler                          2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005D9  EXTI15_10_IRQHandler                       2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005DB  RTC_Alarm_IRQHandler                       2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005DD  SPI3_IRQHandler                            2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005DF  TIM6_DAC_IRQHandler                        2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005E1  TIM7_IRQHandler                            2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005E3  DMA2_Channel1_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005E5  DMA2_Channel2_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005E7  DMA2_Channel3_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005E9  DMA2_Channel4_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005EB  DMA2_Channel5_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005ED  COMP_IRQHandler                            2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005EF  LPTIM1_IRQHandler                          2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005F1  LPTIM2_IRQHandler                          2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005F3  USB_IRQHandler                             2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005F5  DMA2_Channel6_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005F7  DMA2_Channel7_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005F9  LPUART1_IRQHandler                         2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005FB  QUADSPI_IRQHandler                         2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005FD  I2C3_EV_IRQHandler                         2  Code  Wk  stm32l432xx_Vectors.o
-  0x080005FF  I2C3_ER_IRQHandler                         2  Code  Wk  stm32l432xx_Vectors.o
-  0x08000601  SAI1_IRQHandler                            2  Code  Wk  stm32l432xx_Vectors.o
-  0x08000603  SWPMI1_IRQHandler                          2  Code  Wk  stm32l432xx_Vectors.o
-  0x08000605  TSC_IRQHandler                             2  Code  Wk  stm32l432xx_Vectors.o
-  0x08000607  RNG_IRQHandler                             2  Code  Wk  stm32l432xx_Vectors.o
-  0x08000609  FPU_IRQHandler                             2  Code  Wk  stm32l432xx_Vectors.o
-  0x0800060B  CRS_IRQHandler                             2  Code  Wk  stm32l432xx_Vectors.o
-  0x0800060D  reset_handler                              2  Code  Gb  STM32L4xx_Startup.o
-  0x0800060D  Reset_Handler                              2  Code  Gb  STM32L4xx_Startup.o
-  0x08000629  __SEGGER_init_ctors                26      4  Code  Wk  SEGGER_crtinit.o (SEGGER_crtinit_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
-  0x08000669  __SEGGER_init_copy                 20      2  Code  Wk  SEGGER_crtinit.o (SEGGER_crtinit_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  0x0800018D  NMI_Handler                                2  Code  Wk  stm32l432xx_Vectors.o
+  0x0800018F  MemManage_Handler                          2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000191  delayTIM6                          84      8  Code  Gb  TIM67.o
+  0x08000225  SystemInit                         88      4  Code  Gb  system_stm32l4xx.o
+  0x0800027D  SystemCoreClockUpdate             340      4  Code  Gb  system_stm32l4xx.o
+  0x080003D1  pinMode                           216      4  Code  Gb  GPIO.o
+  0x080005B1  main                              176      4  Code  Gb  lab5_starter.o
+  0x08000661  setUpPWM                          216      4  Code  Gb  TIM16.o
+  0x08000739  changeFreq                        112      4  Code  Gb  TIM16.o
+  0x080007A9  setUpTIM6                          52      4  Code  Gb  TIM67.o
+  0x080007DD  _start                             14      4  Code  Gb  SEGGER_THUMB_Startup.o
+  0x080007E7  __startup_complete                         4  Code  Gb  SEGGER_THUMB_Startup.o
+  0x080007E7  __SEGGER_init_done                         4  Code  Gb  SEGGER_THUMB_Startup.o
+  0x080007EB  exit                                2      4  Code  Gb  SEGGER_THUMB_Startup.o
+  0x080007F1  HardFault_Handler                          4  Code  Wk  STM32L4xx_Startup.o
+  0x08000819  __aeabi_dmul                      304      4  Code  Wk  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  0x08000949  __aeabi_ddiv                      450      4  Code  Wk  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  0x08000B0D  __aeabi_d2uiz                      36      4  Code  Wk  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  0x08000B31  __aeabi_i2d                        34      4  Code  Wk  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  0x08000B55  __aeabi_ui2d                       28      4  Code  Wk  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  0x08000B71  BusFault_Handler                           2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B73  UsageFault_Handler                         2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B75  SVC_Handler                                2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B77  DebugMon_Handler                           2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B79  PendSV_Handler                             2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B7B  SysTick_Handler                            2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B7D  WWDG_IRQHandler                            2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B7F  PVD_PVM_IRQHandler                         2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B81  TAMP_STAMP_IRQHandler                      2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B83  RTC_WKUP_IRQHandler                        2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B85  FLASH_IRQHandler                           2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B87  RCC_IRQHandler                             2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B89  EXTI0_IRQHandler                           2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B8B  EXTI1_IRQHandler                           2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B8D  EXTI2_IRQHandler                           2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B8F  EXTI3_IRQHandler                           2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B91  EXTI4_IRQHandler                           2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B93  DMA1_Channel1_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B95  DMA1_Channel2_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B97  DMA1_Channel3_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B99  DMA1_Channel4_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B9B  DMA1_Channel5_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B9D  DMA1_Channel6_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000B9F  DMA1_Channel7_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BA1  ADC1_IRQHandler                            2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BA3  CAN1_TX_IRQHandler                         2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BA5  CAN1_RX0_IRQHandler                        2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BA7  CAN1_RX1_IRQHandler                        2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BA9  CAN1_SCE_IRQHandler                        2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BAB  EXTI9_5_IRQHandler                         2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BAD  TIM1_BRK_TIM15_IRQHandler                  2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BAF  TIM1_UP_TIM16_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BB1  TIM1_TRG_COM_IRQHandler                    2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BB3  TIM1_CC_IRQHandler                         2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BB5  TIM2_IRQHandler                            2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BB7  I2C1_EV_IRQHandler                         2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BB9  I2C1_ER_IRQHandler                         2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BBB  SPI1_IRQHandler                            2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BBD  USART1_IRQHandler                          2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BBF  USART2_IRQHandler                          2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BC1  EXTI15_10_IRQHandler                       2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BC3  RTC_Alarm_IRQHandler                       2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BC5  SPI3_IRQHandler                            2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BC7  TIM6_DAC_IRQHandler                        2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BC9  TIM7_IRQHandler                            2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BCB  DMA2_Channel1_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BCD  DMA2_Channel2_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BCF  DMA2_Channel3_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BD1  DMA2_Channel4_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BD3  DMA2_Channel5_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BD5  COMP_IRQHandler                            2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BD7  LPTIM1_IRQHandler                          2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BD9  LPTIM2_IRQHandler                          2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BDB  USB_IRQHandler                             2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BDD  DMA2_Channel6_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BDF  DMA2_Channel7_IRQHandler                   2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BE1  LPUART1_IRQHandler                         2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BE3  QUADSPI_IRQHandler                         2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BE5  I2C3_EV_IRQHandler                         2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BE7  I2C3_ER_IRQHandler                         2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BE9  SAI1_IRQHandler                            2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BEB  SWPMI1_IRQHandler                          2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BED  TSC_IRQHandler                             2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BEF  RNG_IRQHandler                             2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BF1  FPU_IRQHandler                             2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BF3  CRS_IRQHandler                             2  Code  Wk  stm32l432xx_Vectors.o
+  0x08000BF5  reset_handler                              2  Code  Gb  STM32L4xx_Startup.o
+  0x08000BF5  Reset_Handler                              2  Code  Gb  STM32L4xx_Startup.o
+  0x08000C11  __SEGGER_init_ctors                26      4  Code  Wk  SEGGER_crtinit.o (SEGGER_crtinit_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  0x08000C51  __SEGGER_init_copy                 20      2  Code  Wk  SEGGER_crtinit.o (SEGGER_crtinit_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
 
 Function symbols by descending size:
 
   Symbol name                      Size  Align  Type  Bd  Object File
   -------------------------  ----------  -----  ----  --  -----------
+  __aeabi_ddiv                      450      4  Code  Wk  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
   SystemCoreClockUpdate             340      4  Code  Gb  system_stm32l4xx.o
-  main                              248      4  Code  Gb  lab5_starter.o
+  __aeabi_dmul                      304      4  Code  Wk  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
   pinMode                           216      4  Code  Gb  GPIO.o
+  setUpPWM                          216      4  Code  Gb  TIM16.o
+  main                              176      4  Code  Gb  lab5_starter.o
+  changeFreq                        112      4  Code  Gb  TIM16.o
   SystemInit                         88      4  Code  Gb  system_stm32l4xx.o
+  delayTIM6                          84      8  Code  Gb  TIM67.o
+  setUpTIM6                          52      4  Code  Gb  TIM67.o
+  __aeabi_d2uiz                      36      4  Code  Wk  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  __aeabi_i2d                        34      4  Code  Wk  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
+  __aeabi_ui2d                       28      4  Code  Wk  floatasmops_arm.o (libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
   __SEGGER_init_ctors                26      4  Code  Wk  SEGGER_crtinit.o (SEGGER_crtinit_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
   __SEGGER_init_copy                 20      2  Code  Wk  SEGGER_crtinit.o (SEGGER_crtinit_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a)
   _start                             14      4  Code  Gb  SEGGER_THUMB_Startup.o
@@ -457,19 +500,21 @@ Read-only data symbols by name:
 
   Symbol name                   Address        Size  Align  Type  Bd  Object File
   -------------------------  ----------  ----------  -----  ----  --  -----------
-  AHBPrescTable              0x0800018C          16      4  Cnst  Gb  system_stm32l4xx.o
-  MSIRangeTable              0x0800019C          48      4  Cnst  Gb  system_stm32l4xx.o
-  __SEGGER_init_data__       0x08000664         [4]      4  Cnst  Lc  [ Linker created ]
-  __SEGGER_init_table__      0x0800064C        [24]      4  Cnst  Lc  [ Linker created ]
+  AHBPrescTable              0x080001E4          16      4  Cnst  Gb  system_stm32l4xx.o
+  MSIRangeTable              0x080001F4          48      4  Cnst  Gb  system_stm32l4xx.o
+  __SEGGER_init_data__       0x08000C4C         [4]      4  Cnst  Lc  [ Linker created ]
+  __SEGGER_init_table__      0x08000C34        [24]      4  Cnst  Lc  [ Linker created ]
+  bamba                      0x080004A8         264      4  Cnst  Gb  lab5_starter.o
 
 Read-only data symbols by address:
 
      Address  Symbol name                      Size  Align  Type  Bd  Object File
   ----------  -------------------------  ----------  -----  ----  --  -----------
-  0x0800018C  AHBPrescTable                      16      4  Cnst  Gb  system_stm32l4xx.o
-  0x0800019C  MSIRangeTable                      48      4  Cnst  Gb  system_stm32l4xx.o
-  0x0800064C  __SEGGER_init_table__            [24]      4  Cnst  Lc  [ Linker created ]
-  0x08000664  __SEGGER_init_data__              [4]      4  Cnst  Lc  [ Linker created ]
+  0x080001E4  AHBPrescTable                      16      4  Cnst  Gb  system_stm32l4xx.o
+  0x080001F4  MSIRangeTable                      48      4  Cnst  Gb  system_stm32l4xx.o
+  0x080004A8  bamba                             264      4  Cnst  Gb  lab5_starter.o
+  0x08000C34  __SEGGER_init_table__            [24]      4  Cnst  Lc  [ Linker created ]
+  0x08000C4C  __SEGGER_init_data__              [4]      4  Cnst  Lc  [ Linker created ]
 
 Untyped symbols by name:
 
@@ -479,18 +524,18 @@ Untyped symbols by name:
   __FLASH1_segment_size__    0x00040000                     ----  Gb  [ Linker created ]
   __FLASH1_segment_start__   0x08000000                     ----  Gb  [ Linker created ]
   __FLASH1_segment_used_end__
-                             0x0800067C                     ----  Gb  [ Linker created ]
+                             0x08000C64                     ----  Gb  [ Linker created ]
   __FLASH1_segment_used_size__
-                             0x0000067C                     ----  Gb  [ Linker created ]
+                             0x00000C64                     ----  Gb  [ Linker created ]
   __FLASH1_segment_used_start__
                              0x08000000                     ----  Gb  [ Linker created ]
   __FLASH_segment_end__      0x08040000                     ----  Gb  [ Linker created ]
   __FLASH_segment_size__     0x00040000                     ----  Gb  [ Linker created ]
   __FLASH_segment_start__    0x08000000                     ----  Gb  [ Linker created ]
   __FLASH_segment_used_end__
-                             0x0800067C                     ----  Gb  [ Linker created ]
+                             0x08000C64                     ----  Gb  [ Linker created ]
   __FLASH_segment_used_size__
-                             0x0000067C                     ----  Gb  [ Linker created ]
+                             0x00000C64                     ----  Gb  [ Linker created ]
   __FLASH_segment_used_start__
                              0x08000000                     ----  Gb  [ Linker created ]
   __HEAPSIZE__               0x00000000                     ----  Gb  [ Linker created ]
@@ -519,8 +564,8 @@ Untyped symbols by name:
                              0x10000000                     ----  Gb  [ Linker created ]
   __STACKSIZE_PROCESS__      0x00000000                     ----  Gb  [ Linker created ]
   __STACKSIZE__              0x00000800                     ----  Gb  [ Linker created ]
-  __ctors_end__              0x08000628                     ----  Gb  [ Linker created ]
-  __ctors_start__            0x08000624                     ----  Gb  [ Linker created ]
+  __ctors_end__              0x08000C10                     ----  Gb  [ Linker created ]
+  __ctors_start__            0x08000C0C                     ----  Gb  [ Linker created ]
   __stack_end__              0x2000C000                     ----  Gb  [ Linker created ]
   __thread_pointer$          0x00000000                     ----  Gb  [ Linker created ]
   _vectors                   0x08000000       [396]    512  Code  Gb  stm32l432xx_Vectors.o
@@ -535,12 +580,12 @@ Untyped symbols by address:
   0x00000000  __HEAPSIZE__                                  ----  Gb  [ Linker created ]
   0x00000004  __RAM1_segment_used_size__
                                                             ----  Gb  [ Linker created ]
-  0x0000067C  __FLASH_segment_used_size__
-                                                            ----  Gb  [ Linker created ]
-  0x0000067C  __FLASH1_segment_used_size__
-                                                            ----  Gb  [ Linker created ]
   0x00000800  __STACKSIZE__                                 ----  Gb  [ Linker created ]
   0x00000800  __RAM2_segment_used_size__
+                                                            ----  Gb  [ Linker created ]
+  0x00000C64  __FLASH_segment_used_size__
+                                                            ----  Gb  [ Linker created ]
+  0x00000C64  __FLASH1_segment_used_size__
                                                             ----  Gb  [ Linker created ]
   0x00004000  __RAM1_segment_size__                         ----  Gb  [ Linker created ]
   0x0000C000  __RAM2_segment_size__                         ----  Gb  [ Linker created ]
@@ -554,11 +599,11 @@ Untyped symbols by address:
                                                             ----  Gb  [ Linker created ]
   0x08000000  __FLASH1_segment_start__                      ----  Gb  [ Linker created ]
   0x0800018C  _vectors_end                             512  Code  Lc  stm32l432xx_Vectors.o
-  0x08000624  __ctors_start__                               ----  Gb  [ Linker created ]
-  0x08000628  __ctors_end__                                 ----  Gb  [ Linker created ]
-  0x0800067C  __FLASH_segment_used_end__
+  0x08000C0C  __ctors_start__                               ----  Gb  [ Linker created ]
+  0x08000C10  __ctors_end__                                 ----  Gb  [ Linker created ]
+  0x08000C64  __FLASH_segment_used_end__
                                                             ----  Gb  [ Linker created ]
-  0x0800067C  __FLASH1_segment_used_end__
+  0x08000C64  __FLASH1_segment_used_end__
                                                             ----  Gb  [ Linker created ]
   0x08040000  __FLASH_segment_end__                         ----  Gb  [ Linker created ]
   0x08040000  __FLASH1_segment_end__                        ----  Gb  [ Linker created ]
@@ -590,15 +635,15 @@ Untyped symbols by address:
 
 Memory breakdown:
 
-    1 564 bytes read-only  code    + 
-       92 bytes read-only  data    =   1 656 bytes read-only (total)
+    2 812 bytes read-only  code    + 
+      356 bytes read-only  data    =   3 168 bytes read-only (total)
     2 052 bytes read-write data
 
 Region summary:
 
   Name        Range                     Size                 Used               Unused       Alignment Loss
   ----------  -----------------  -----------  -------------------  -------------------  -------------------
-  FLASH       08000000-0803ffff      262 144        1 660   0.63%      260 484  99.37%            0   0.00%
+  FLASH       08000000-0803ffff      262 144        3 172   1.21%      258 972  98.79%            0   0.00%
   RAM1        10000000-10003fff       16 384            4   0.02%       16 380  99.98%            0   0.00%
   RAM2        20000000-2000bfff       49 152        2 048   4.17%       47 104  95.83%            0   0.00%
 

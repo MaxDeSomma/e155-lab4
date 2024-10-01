@@ -8,6 +8,29 @@
 #include "../lib/GPIO.h"
 #include "../lib/RCC.h"
 #include "../lib/TIM16.h"
+#include "../lib/TIM67.h"
+
+#define G5 784
+
+#define E5 659
+
+#define F5 698
+
+#define D5 587
+
+#define F4 349
+
+const int bamba[][2] = {
+    {G5, 1 * 200}, {F5, 1 * 200}, {E5, 2 * 200}, {D5, 2 * 200},
+    {G5, 1 * 200}, {F5, 1 * 200}, {E5, 2 * 200}, {D5, 2 * 200},
+    {G5, 1 * 200}, {F5, 1 * 200}, {E5, 2 * 200}, {G5, 1 * 200},
+    {F5, 1 * 200}, {E5, 2 * 200}, {D5, 2 * 200}, {G5, 1 * 200},
+    {F5, 1 * 200}, {E5, 2 * 200}, 
+    {G5, 1 * 200}, {F5, 1 * 200}, {E5, 2 * 200}, {G5, 1 * 200},
+    {F5, 1 * 200}, {E5, 2 * 200}, {D5, 2 * 200}, {G5, 1 * 200},
+    {F5, 1 * 200}, {E5, 2 * 200}, {D5, 2 * 200}, {G5, 1 * 200},
+    {F5, 1 * 200}, {E5, 2 * 200}, {F4, 4 * 200}
+};
 
 const int notes[][2] = {
 {659,	125},
@@ -134,44 +157,34 @@ int main(void) {
     // Set LED_PIN as output
     RCC->AHB2ENR |= (0b1 << 0); // enable GPIOA
     RCC->APB2ENR |= (0b1 << 17); // enable tim16
-    RCC->CFGR |= (0b1 << 13); // set AHBPRESC to 2
-    RCC->CFGR |= (0b1 << 7); // set APB2PRESC to 2
+    RCC->CFGR |= (0b1001 << 4); // set APB2PRESC to 4
+    RCC->APB1ENR1 |= (0b1 << 4); // enable tim6
+    RCC->APB2ENR |= (0b1 << 17); // enable tim16
 
-
-    TIM16->TIM_PSC |= (0b1 << 1); // set clock prescaler
-    TIM16->TIM_CR1 |= (0b1 << 7); // enable auto preload reload
-    TIM16->TIM_ARR &= 0;
-    TIM16->TIM_ARR = 50000; // set the auto reload register
-
-
-    TIM16->TIM_CCER |= (0b1 << 0); // enable capture compare 1
-    TIM16->TIM_CCR1 = TIM16->TIM_ARR / 2; // 50% duty cycle
-    TIM16->TIM_CCMR1 &= ~(0b11 << 0); // set CC1 as output
-    TIM16->TIM_CCMR1 |= (0b1 << 6); // setting to pwm mode 1
-    TIM16->TIM_CCMR1 |= (0b1 << 5); 
-    
-    TIM16->TIM_BDTR |= (0b1 << 15); // enable main output enable 
-    
-    TIM16->TIM_CCMR1 |= (0b1 << 3); // enable pre load register
-
+    setUpTIM6();
+    setUpPWM(0, 50);
    
-    
-    TIM16->TIM_EGR |= (0b1 << 0); // enableUpdate generation
-    TIM16->TIM_CR1 |= (0b1 << 0); //enable the counter for timer 16
-    
-
     pinMode(6, GPIO_ALT);
-    GPIO->AFRL &= ~(0b1111 << 24); // Clear bits 27:24
     GPIO->AFRL |= (0b1110 << 24);
-    //GPIO->OSPEEDR |= (0b11 << 12);
 
-    
-    
-    
-    // Blink LED
+    int numNotes = sizeof(notes)/sizeof(notes[0]);
+    int bambaNotes = sizeof(bamba)/sizeof(bamba[0]); // Calculate number of notes
+
+    // for (int i = 0; i < numNotes-1; i++) {
+    //     int pitch = notes[i][0];  // Get the pitch
+    //     int delay = notes[i][1];  // Get the delay
+    //     changeFreq(pitch, 50);
+    //     delayTIM6(delay);
+    // }
+
+    for (int j = 0; j < bambaNotes; j++) {
+        int pitch = bamba[j][0];  // Get the pitch
+        int delay = bamba[j][1];  // Get the delay
+        changeFreq(pitch, 50);
+        delayTIM6(delay);
+    }
     while(1) {
-    //    digitalWrite(7,GPIO_HIGH);
-      //TIM16->TIM_SR &= ~(0b1 << 1);
+      
     }
     return 0;
 	

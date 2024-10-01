@@ -71,6 +71,8 @@
         <file file_name="../mcu/src/FLASH.c" />
         <file file_name="../mcu/src/GPIO.c" />
         <file file_name="../mcu/src/lab5_starter.c" />
+        <file file_name="../mcu/src/TIM16.c" />
+        <file file_name="../mcu/src/TIM67.c" />
       </folder>
     </folder>
     <folder Name="System Files">

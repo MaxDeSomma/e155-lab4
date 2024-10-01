@@ -13,8 +13,8 @@
 #define __IO volatile
 
 // Base addresses
-#define TIM6_BASE (0x400013FFUL) // base address of TIM6
-#define TIM7_BASE (0x400017FFUL) // base address of TIM7
+#define TIM6_BASE (0x40001000UL) // base address of TIM6
+#define TIM7_BASE (0x40001400UL) // base address of TIM7
 
 /**
   * @brief Reset and Clock Control
@@ -28,14 +28,19 @@ typedef struct
   __IO uint32_t TIM_DIER;   // tim DMA/Interrupt enable register
   __IO uint32_t TIM_SR;     // time status register
   __IO uint32_t TIM_EGR;    // tim event generation register
-  uint32_t      RESERVED;    // Reserved,
+  uint32_t      RESERVED1;    // Reserved,
+  uint32_t      RESERVED2;    // Reserved,
+  uint32_t      RESERVED3;    // Reserved,
   __IO uint32_t TIM_CNT;     // tim counter
-  __IO uint32_t TIM_PSC      // time prescaler
-  __IO uint32_t TIM_ARR      // time auto reload register                                                           
+  __IO uint32_t TIM_PSC;      // time prescaler
+  __IO uint32_t TIM_ARR;     // time auto reload register                                                           
 
 } TIM_TypeDef;
 
 #define TIM6 ((TIM_TypeDef *) TIM6_BASE)
 #define TIM7 ((TIM_TypeDef *) TIM7_BASE)
+
+void setUpTIM6();
+void delayTIM6(int ms);
 
 #endif

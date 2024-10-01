@@ -2,6 +2,8 @@
 "Output/Debug/Obj/lab3/FLASH.o"
 "Output/Debug/Obj/lab3/GPIO.o"
 "Output/Debug/Obj/lab3/lab5_starter.o"
+"Output/Debug/Obj/lab3/TIM16.o"
+"Output/Debug/Obj/lab3/TIM67.o"
 "Output/Debug/Obj/lab3/SEGGER_THUMB_Startup.o"
 "Output/Debug/Obj/lab3/stm32l432xx_Vectors.o"
 "Output/Debug/Obj/lab3/STM32L4xx_Startup.o"

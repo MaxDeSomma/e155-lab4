@@ -8,4 +8,5 @@ Output/Debug/Obj/lab3/lab5_starter.o: \
  C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ 8.16/include/__SEGGER_RTL_Arm_Conf.h \
  C:/Users/mdesomma/Documents/e155-lab4/mcu/lib/GPIO.h \
  C:/Users/mdesomma/Documents/e155-lab4/mcu/lib/RCC.h \
- C:/Users/mdesomma/Documents/e155-lab4/mcu/lib/TIM16.h
+ C:/Users/mdesomma/Documents/e155-lab4/mcu/lib/TIM16.h \
+ C:/Users/mdesomma/Documents/e155-lab4/mcu/lib/TIM67.h
